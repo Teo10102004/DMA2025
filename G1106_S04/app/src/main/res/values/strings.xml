@@ -6,4 +6,11 @@
         <item>Comedy</item>
         <item>Adventure</item>
     </string-array>
+
+    <string-array name="studio">
+        <item>Ceva</item>
+        <item>Ceva1</item>
+        <item>Ceva2</item>
+        <item>Ceva3</item>
+    </string-array>
 </resources>

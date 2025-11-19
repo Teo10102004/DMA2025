@@ -43,14 +43,12 @@
             android:layout_weight="1"
             android:text="Studio" />
 
-        <EditText
-            android:id="@+id/etStudio"
+        <Spinner
+            android:id="@+id/spStudio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Studio" />
+            android:entries="@array/studio"/>
     </LinearLayout>
 
     <LinearLayout
@@ -71,26 +69,8 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:entries="@array/movie_genre"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvNoActors3"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="No actors" />
-
-        <SeekBar
-            android:id="@+id/sbNoActors"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3" />
+            />
     </LinearLayout>
 
     <LinearLayout

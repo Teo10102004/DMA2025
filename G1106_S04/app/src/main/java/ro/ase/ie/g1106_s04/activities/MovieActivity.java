@@ -31,6 +31,7 @@ import ro.ase.ie.g1106_s04.R;
 import ro.ase.ie.g1106_s04.model.GenreEnum;
 import ro.ase.ie.g1106_s04.model.Movie;
 import ro.ase.ie.g1106_s04.model.ParentalGuidanceEnum;
+import ro.ase.ie.g1106_s04.model.StudioEnum;
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class MovieActivity extends AppCompatActivity {
     private EditText etRelease;
     private EditText etBudget;
     private EditText etPoster;
+    private Spinner spStudio;
     private RatingBar rbRating;
     private SeekBar sbDuration;
     private RadioGroup rgGuidance;
@@ -85,7 +87,7 @@ public class MovieActivity extends AppCompatActivity {
 
     private void initializeControls() {
         etTitle = findViewById(R.id.etTitle);
-        etStudio = findViewById(R.id.etStudio);
+        spStudio = findViewById(R.id.spStudio);
         etBudget = findViewById(R.id.etBudget);
         etRelease = findViewById(R.id.etRelease);
         etPoster = findViewById(R.id.etPoster);
@@ -115,8 +117,6 @@ public class MovieActivity extends AppCompatActivity {
                 else {
                     switch (result.field)
                     {
-                        case STUDIO:
-                            etStudio.setError(result.message);
                         case TITLE:
                             etTitle.setError(result.message);
                             break;
@@ -146,10 +146,6 @@ public class MovieActivity extends AppCompatActivity {
             return ValidationResult.error(Field.TITLE, "Movie title is mandatory!");
         }
 
-        String studio = etStudio.getText().toString().trim();
-        if(title.isEmpty()){
-            return ValidationResult.error(Field.STUDIO, "Studio is mandatory");
-        }
 
         String budgetStr = etBudget.getText().toString();
         double budget = 0.0;
@@ -201,8 +197,9 @@ public class MovieActivity extends AppCompatActivity {
         RadioButton radioButton = findViewById(id);
         String guidance = radioButton.getText().toString();
 
-        movie.setStudio(studio);
+
         movie.setTitle(title);
+        movie.setStudio(spStudio.getSelectedItem().toString());
         movie.setBudget(budget);
         movie.setRelease(release);
         movie.setRating(rbRating.getRating());
